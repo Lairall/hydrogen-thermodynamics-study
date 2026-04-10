@@ -26,7 +26,7 @@ def plot_viscosity_vs_pressure(model_function, T, model_name):
 
     plt.grid()
 
-    filename = f"figures/viscosity_vs_P_{model_name}.png"
+    filename = f"figures/viscosity/viscosity_vs_P_{model_name}.png"
     plt.savefig(filename, dpi=300)
 
     plt.close()
@@ -55,7 +55,7 @@ def plot_viscosity_vs_temperature(model_function, P, model_name):
 
     plt.grid()
 
-    filename = f"figures/viscosity_vs_T_{model_name}.png"
+    filename = f"figures/viscosity/viscosity_vs_T_{model_name}.png"
     plt.savefig(filename, dpi=300)
 
     plt.close()
