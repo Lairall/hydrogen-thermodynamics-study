@@ -78,7 +78,7 @@ def plot_density_vs_Z(model_density, model_Z, T, model_name):
 
         densities.append(rho)
         Z_values.append(Z)
-        print(P, Z, rho)
+        # print(P, Z, rho)
 
     plt.figure()
     plt.plot(Z_values, densities)
