@@ -1,40 +1,25 @@
-# EOS cúbica (Peng–Robinson (PR)) onde Z é diferente de 1 (aproximação)
-
 from thermo import ChemicalConstantsPackage
 from thermo import PRMIX
 from thermo import CEOSGas
 
-# Definindo o fluido
 fluids = ['hydrogen']
 
-# Constantes críticas e propriedades
 constants, correlations = ChemicalConstantsPackage.from_IDs(fluids)
 
-# Criando modelo Peng-Robinson
-eos_kwargs = {  # keyword arguments (argumentos nomeados)
+eos_kwargs = {
     "Tcs": constants.Tcs,
     "Pcs": constants.Pcs,
-    "omegas": constants.omegas  # acentric factor
+    "omegas": constants.omegas
 }
-
-# Modelo gás com PR
-gas = CEOSGas(PRMIX, eos_kwargs=eos_kwargs)  # CEOSGas resolve a equação de estado
 
 
 def calculate_Z(P, T):
-    """
-    Calcula Z usando Peng-Robinson
-    """
-    gas.T = T
-    gas.P = P
+    gas = CEOSGas(PRMIX, eos_kwargs=eos_kwargs, zs=[1.0], T=T, P=P)
     return float(gas.Z())
 
 
 def calculate_density(P, T):
-    """
-    Calcula densidade via Z
-    """
-    R = 4124  # J/kg.K (hidrogênio)
+    R = 4124  # J/kg.K
 
     Z = calculate_Z(P, T)
 
