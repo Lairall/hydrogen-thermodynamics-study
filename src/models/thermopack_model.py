@@ -4,6 +4,7 @@ from thermopack.cubic import PengRobinson
 import numpy as np
 
 
+
 # Inicializando modelo Peng-Robinson
 eos = PengRobinson("H2")  # fluido (H2)
 z_comp = [1.0]  # Composição: hidrogênio puro
